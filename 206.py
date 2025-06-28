@@ -45,3 +45,20 @@ class Solution:
 
         return prev
     
+'''
+recursive solution 
+'''
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        curr = head
+        if curr == None or curr.next == None:
+            return curr
+        else:
+            newHead = self.reverseList(curr)
+            curr.next.next = curr
+            curr.next = None
+            return newHead
+        
+
+        
