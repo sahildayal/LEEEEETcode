@@ -23,6 +23,9 @@ Constraints:
 -5 * 104 <= nums[i] <= 5 * 104
 '''
 
+from typing import List
+
+
 class Solution:
     def sortArray(self, nums: List[int])-> List[int]:
         def merge(nums, start, middle, end):
