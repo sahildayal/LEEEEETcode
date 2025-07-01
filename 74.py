@@ -31,6 +31,9 @@ n == matrix[i].length
 '''
 
 # time complexity: O(mlogn)
+from typing import List
+
+
 def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
     for i in range(len(matrix)):
         L = 0
@@ -45,3 +48,28 @@ def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
             else:
                 return True
     return False
+
+# time complexity O(log(m*n))
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m = len(matrix)
+        n = len(matrix[0])
+
+        L = 0
+        H = m*n-1
+
+        while L <= H:
+            mid = (L+H)//2
+            row = mid // n
+            column = mid%n
+            val = matrix[row][column]
+
+            if target > val:
+                L = mid + 1
+            elif target < val:
+                H = mid - 1
+            else:
+                return True
+        
+        return False
+    
