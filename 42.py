@@ -39,12 +39,13 @@ class Solution:
                 l += 1
                 if left_max > height[l]:
                     max_water += left_max - height[l]
+                left_max = max(left_max, height[l])
+
             else: #right_max > left_max
                 r -= 1
                 if right_max > height[r]:
                     max_water += right_max - height[r]
 
-            left_max = max(left_max, height[l])
-            right_max = max(right_max, height[r])
+                right_max = max(right_max, height[r])
 
         return max_water
